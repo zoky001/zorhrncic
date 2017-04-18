@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace loto
 {
-    public partial class Form1 : Form
+    public partial class Lotto : Form
     {
-        public Form1()
+        public Lotto()
         {
             InitializeComponent();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
