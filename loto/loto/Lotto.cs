@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace loto
 {
-    class Lotto
+    public class Loto
     {
 
         public List<int> UplaceniBrojevi { get; set; }
@@ -14,7 +14,7 @@ namespace loto
 
         //konstruktor klase
 
-        public Lotto() {
+        public Loto() {
 
             UplaceniBrojevi = new List<int>();
             DobitniBrojevi = new List<int>();
