@@ -12,7 +12,7 @@ namespace automobili.AutomotiveClasses
         public int brojCilindra { get; set; }
         public int ccm { get; set; }
         public int konjskeSnage { get; set; }
-        //public EnumHelper.Gorivo gorivo { get; set; }
+        public EnumHelper.Gorivo gorivo { get; set; }
 
         public Motor(int brojCilindra, int ccm, int konjskeSnage, EnumHelper.Gorivo gorivo) {
 

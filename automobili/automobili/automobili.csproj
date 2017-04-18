@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutomotiveClasses\automobil.cs" />
+    <Compile Include="AutomotiveClasses\Dio.cs" />
+    <Compile Include="AutomotiveClasses\EnumHelper.cs" />
+    <Compile Include="AutomotiveClasses\Motor.cs" />
+    <Compile Include="AutomotiveClasses\VIN.cs" />
+    <Compile Include="AutomotiveClasses\vozilo.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

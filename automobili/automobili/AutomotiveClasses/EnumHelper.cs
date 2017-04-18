@@ -8,9 +8,15 @@ namespace automobili.AutomotiveClasses
 {
     class EnumHelper
     {
+        
+        public enum Gorivo
+        { Dizel,Benzin
+            
 
-        public String Gorivo() { get; set; }
-        public String Kocnice() { get; set; }
+        }
 
+        public enum Kocnice
+        {dobos,diskovi
+        }
     }
 }

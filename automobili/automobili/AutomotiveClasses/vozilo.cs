@@ -20,6 +20,24 @@ namespace automobili.AutomotiveClasses
         public String gume { get; set; }
         public int co2 { get; set; }
 
-        public Vozilo
+        public Vozilo() {
+            montiraniDijelovi = new List<Dio>();
+            idAutomobila = new VIN(10, 15, 54);
+ }
+        public bool addDio(Dio noviDio) {
+
+            montiraniDijelovi.Add(noviDio);
+            return true;
+        }
+
+        public void updateStatus() {
+            status = status++;
+
+        }
+        public List<Dio> getDjelovi()
+        {
+            return montiraniDijelovi;
+
+        }
     }
 }
