@@ -12,10 +12,32 @@ namespace domMyHome
 {
     public partial class frmDjelatnici : Form
     {
+        private static frmDjelatnici _instance;
         public frmDjelatnici()
         {
             InitializeComponent();
         }
+        public frmDjelatnici instance
+        {
+            get
+            {
+
+                if (frmDjelatnici._instance == null)
+                {
+
+                    frmDjelatnici._instance = new frmDjelatnici();
+
+
+                }
+                else _instance.Activate();
+
+                return frmDjelatnici._instance;
+
+            }
+
+        }
+
+       
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -60,6 +82,11 @@ namespace domMyHome
         private void frmDjelatnici_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmDjelatnici_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmDjelatnici._instance = null;
         }
     }
 }

@@ -19,18 +19,20 @@ namespace domMyHome
         {
             InitializeComponent();
 
-
         }
-      
 
-        private void Home_Load(object sender, EventArgs e)
+        private void frmHome_Load(object sender, EventArgs e)
         {
             frmPrijava prijava = new frmPrijava();
 
 
             prijava.ShowDialog(this);
-       
+           this.KeyPreview = true;
+           // this.KeyDown += new KeyEventHandler(frmHome_KeyDown);
+
         }
+
+      
 
     
 
@@ -45,7 +47,7 @@ namespace domMyHome
         private void btnDjelatnici_Click(object sender, EventArgs e)
         {frmDjelatnici djelatnici = new frmDjelatnici();
 
-            djelatnici.Show(this);
+            djelatnici.instance.Show();
             
             /*
             if (djelatnici == null)
@@ -66,6 +68,35 @@ namespace domMyHome
           
         }
 
+        private void frmHome_HelpButtonClicked(object sender, CancelEventArgs e)
+        {
+            MessageBox.Show("help button") ;
+        }
+
+        private void frmHome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MessageBox.Show("keypress");
+           
+        }
+
+        private void frmHome_KeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show("vrijednost: " + e.KeyCode);
+          
+            
+        }
+
+        private void frmHome_MouseClick(object sender, MouseEventArgs e)
+        {
+            //MessageBox.Show("mis klik");
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+       
     }
 
       

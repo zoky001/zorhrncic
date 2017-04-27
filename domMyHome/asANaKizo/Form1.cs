@@ -28,6 +28,9 @@ namespace domMyHome
 
         private void frmPrijava_Load(object sender, EventArgs e)
         {
+            this.KeyPreview = true;
+            //this.KeyDown += new KeyEventHandler(frmPrijava_KeyDown);
+            //this.KeyPress -= new KeyPressEventHandler(frmPrijava_KeyPress);
 
         }
 
@@ -37,6 +40,16 @@ namespace domMyHome
             zaboraviLozinku.Show();
             this.Hide();
 
+        }
+
+        private void frmPrijava_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void frmPrijava_KeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show("down" + e.KeyCode);
         }
     }
 }

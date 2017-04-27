@@ -272,6 +272,7 @@
             this.Controls.Add(this.dgvKorisnici);
             this.Name = "frmDjelatnici";
             this.Text = "Djelatnici";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmDjelatnici_FormClosed);
             this.Load += new System.EventHandler(this.frmDjelatnici_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).EndInit();
             this.ResumeLayout(false);
