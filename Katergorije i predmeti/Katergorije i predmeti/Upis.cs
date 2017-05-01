@@ -32,6 +32,36 @@ namespace Katergorije_i_predmeti
 
         }
 
+
+        public void Izracun() {
+
+            upisanaKategorija.Clear();
+
+            foreach (var item in upisaniPredmeta)
+            {bool n = false;
+                foreach (var item1 in upisanaKategorija)
+                {
+                    
+                    if (item.kategorija ==item1.kategorija )
+                    {
+                        item1.brojECTS = item1.brojECTS + item.ECTS;
+
+                        n = true;
+                    }
+
+                   
+                }
+
+                if (!n)
+                {
+                    UpisanaKategorija up = new UpisanaKategorija(item.kategorija, item.ECTS);
+
+                    upisanaKategorija.Add(up);
+                    }
+            }
+
+        }
+
         public void dodajPredmet(Predmeti P) {
 
             popisPredmeta.Add(P);

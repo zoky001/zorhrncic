@@ -96,6 +96,7 @@ namespace Katergorije_i_predmeti
 
             upis.upisaniPredmeta.Add(P);
 
+            listBoxUpisani.Items.Clear();
             foreach (var item in upis.upisaniPredmeta)
             {
                 listBoxUpisani.Items.Add(item.naziv);
@@ -107,6 +108,18 @@ namespace Katergorije_i_predmeti
 
             }
 
+            PopuniKAtegorije();
+
+        }
+
+
+        private void PopuniKAtegorije() {
+            popisUpisanih.Items.Clear();
+            upis.Izracun();
+            foreach (var item in upis.upisanaKategorija)
+            {
+                popisUpisanih.Items.Add(item.kategorija.Naziv + "->" + item.brojECTS);
+            }
 
 
         }

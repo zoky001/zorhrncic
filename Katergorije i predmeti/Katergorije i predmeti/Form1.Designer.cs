@@ -39,6 +39,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.listBoxUpisani = new System.Windows.Forms.ListBox();
+            this.popisUpisanih = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // listBoxKategorije
@@ -140,11 +141,21 @@
             this.listBoxUpisani.Size = new System.Drawing.Size(247, 148);
             this.listBoxUpisani.TabIndex = 10;
             // 
+            // popisUpisanih
+            // 
+            this.popisUpisanih.FormattingEnabled = true;
+            this.popisUpisanih.ItemHeight = 16;
+            this.popisUpisanih.Location = new System.Drawing.Point(296, 295);
+            this.popisUpisanih.Name = "popisUpisanih";
+            this.popisUpisanih.Size = new System.Drawing.Size(329, 132);
+            this.popisUpisanih.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 455);
+            this.Controls.Add(this.popisUpisanih);
             this.Controls.Add(this.listBoxUpisani);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
@@ -177,6 +188,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox listBoxUpisani;
+        private System.Windows.Forms.ListBox popisUpisanih;
     }
 }
 
