@@ -11,11 +11,7 @@ namespace automobili.AutomotiveClasses
         public int volumenPrtljaznika { get; set; }
         public int ncap { get; set; }
         public int vrata { get; set; }
-       // EnumHelper.Kocnice koc = EnumHelper.Kocnice.diskovi;
-       
-
-
-        
+  
 
         public EnumHelper.Kocnice prednjeKocnice { get; set; }
         public EnumHelper.Kocnice zadnjeKocnice { get; set: }
