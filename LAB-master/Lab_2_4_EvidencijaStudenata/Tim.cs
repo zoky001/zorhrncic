@@ -50,6 +50,8 @@ namespace Lab_2_4_EvidencijaStudenata
         private string nazivProjekta;
         private string opisProjekta;
         private string napomena;
+        private string datum;
+      
 
         #endregion
 
@@ -91,6 +93,7 @@ namespace Lab_2_4_EvidencijaStudenata
             }
         }
 
+  public string Datum { get; set; }
         /// <summary>
         /// Naziv projekta kojeg je tim odabrao.
         /// </summary>

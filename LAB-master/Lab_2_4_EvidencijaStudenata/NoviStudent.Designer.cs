@@ -55,68 +55,77 @@
             // lblTim
             // 
             this.lblTim.AutoSize = true;
-            this.lblTim.Location = new System.Drawing.Point(19, 168);
+            this.lblTim.Location = new System.Drawing.Point(25, 207);
+            this.lblTim.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTim.Name = "lblTim";
-            this.lblTim.Size = new System.Drawing.Size(27, 13);
+            this.lblTim.Size = new System.Drawing.Size(35, 17);
             this.lblTim.TabIndex = 43;
             this.lblTim.Text = "Tim:";
             // 
             // cmbTim
             // 
             this.cmbTim.FormattingEnabled = true;
-            this.cmbTim.Location = new System.Drawing.Point(115, 165);
+            this.cmbTim.Location = new System.Drawing.Point(153, 203);
+            this.cmbTim.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbTim.Name = "cmbTim";
-            this.cmbTim.Size = new System.Drawing.Size(242, 21);
+            this.cmbTim.Size = new System.Drawing.Size(321, 24);
             this.cmbTim.TabIndex = 42;
             // 
             // btnSpremi
             // 
-            this.btnSpremi.Location = new System.Drawing.Point(199, 297);
+            this.btnSpremi.Location = new System.Drawing.Point(265, 366);
+            this.btnSpremi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSpremi.Name = "btnSpremi";
-            this.btnSpremi.Size = new System.Drawing.Size(75, 28);
+            this.btnSpremi.Size = new System.Drawing.Size(100, 34);
             this.btnSpremi.TabIndex = 41;
             this.btnSpremi.Text = "Spremi";
             this.btnSpremi.UseVisualStyleBackColor = true;
+            this.btnSpremi.Click += new System.EventHandler(this.btnSpremi_Click);
             // 
             // btnOdustani
             // 
-            this.btnOdustani.Location = new System.Drawing.Point(280, 297);
+            this.btnOdustani.Location = new System.Drawing.Point(373, 366);
+            this.btnOdustani.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOdustani.Name = "btnOdustani";
-            this.btnOdustani.Size = new System.Drawing.Size(75, 28);
+            this.btnOdustani.Size = new System.Drawing.Size(100, 34);
             this.btnOdustani.TabIndex = 40;
             this.btnOdustani.Text = "Odustani";
             this.btnOdustani.UseVisualStyleBackColor = true;
             // 
             // txtNapomena
             // 
-            this.txtNapomena.Location = new System.Drawing.Point(115, 218);
+            this.txtNapomena.Location = new System.Drawing.Point(153, 268);
+            this.txtNapomena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNapomena.Multiline = true;
             this.txtNapomena.Name = "txtNapomena";
-            this.txtNapomena.Size = new System.Drawing.Size(242, 73);
+            this.txtNapomena.Size = new System.Drawing.Size(321, 89);
             this.txtNapomena.TabIndex = 39;
             // 
             // lblNapomena
             // 
             this.lblNapomena.AutoSize = true;
-            this.lblNapomena.Location = new System.Drawing.Point(20, 221);
+            this.lblNapomena.Location = new System.Drawing.Point(27, 272);
+            this.lblNapomena.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNapomena.Name = "lblNapomena";
-            this.lblNapomena.Size = new System.Drawing.Size(62, 13);
+            this.lblNapomena.Size = new System.Drawing.Size(81, 17);
             this.lblNapomena.TabIndex = 38;
             this.lblNapomena.Text = "Napomena:";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(115, 192);
+            this.txtEmail.Location = new System.Drawing.Point(153, 236);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(242, 20);
+            this.txtEmail.Size = new System.Drawing.Size(321, 22);
             this.txtEmail.TabIndex = 37;
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(20, 195);
+            this.lblEmail.Location = new System.Drawing.Point(27, 240);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(35, 13);
+            this.lblEmail.Size = new System.Drawing.Size(46, 17);
             this.lblEmail.TabIndex = 36;
             this.lblEmail.Text = "Email:";
             // 
@@ -124,9 +133,11 @@
             // 
             this.gbOdabraniModel.Controls.Add(this.rbtnModelB);
             this.gbOdabraniModel.Controls.Add(this.rbtnModelA);
-            this.gbOdabraniModel.Location = new System.Drawing.Point(249, 90);
+            this.gbOdabraniModel.Location = new System.Drawing.Point(332, 111);
+            this.gbOdabraniModel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbOdabraniModel.Name = "gbOdabraniModel";
-            this.gbOdabraniModel.Size = new System.Drawing.Size(108, 69);
+            this.gbOdabraniModel.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbOdabraniModel.Size = new System.Drawing.Size(144, 85);
             this.gbOdabraniModel.TabIndex = 35;
             this.gbOdabraniModel.TabStop = false;
             this.gbOdabraniModel.Text = "Odabrani model";
@@ -134,9 +145,10 @@
             // rbtnModelB
             // 
             this.rbtnModelB.AutoSize = true;
-            this.rbtnModelB.Location = new System.Drawing.Point(6, 42);
+            this.rbtnModelB.Location = new System.Drawing.Point(8, 52);
+            this.rbtnModelB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnModelB.Name = "rbtnModelB";
-            this.rbtnModelB.Size = new System.Drawing.Size(64, 17);
+            this.rbtnModelB.Size = new System.Drawing.Size(80, 21);
             this.rbtnModelB.TabIndex = 1;
             this.rbtnModelB.Text = "Model B";
             this.rbtnModelB.UseVisualStyleBackColor = true;
@@ -145,9 +157,10 @@
             // 
             this.rbtnModelA.AutoSize = true;
             this.rbtnModelA.Checked = true;
-            this.rbtnModelA.Location = new System.Drawing.Point(6, 17);
+            this.rbtnModelA.Location = new System.Drawing.Point(8, 21);
+            this.rbtnModelA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnModelA.Name = "rbtnModelA";
-            this.rbtnModelA.Size = new System.Drawing.Size(64, 17);
+            this.rbtnModelA.Size = new System.Drawing.Size(80, 21);
             this.rbtnModelA.TabIndex = 0;
             this.rbtnModelA.TabStop = true;
             this.rbtnModelA.Text = "Model A";
@@ -157,9 +170,11 @@
             // 
             this.gbStatusStudenta.Controls.Add(this.rbtnIzvanredni);
             this.gbStatusStudenta.Controls.Add(this.rbtnRedoviti);
-            this.gbStatusStudenta.Location = new System.Drawing.Point(115, 90);
+            this.gbStatusStudenta.Location = new System.Drawing.Point(153, 111);
+            this.gbStatusStudenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbStatusStudenta.Name = "gbStatusStudenta";
-            this.gbStatusStudenta.Size = new System.Drawing.Size(128, 69);
+            this.gbStatusStudenta.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbStatusStudenta.Size = new System.Drawing.Size(171, 85);
             this.gbStatusStudenta.TabIndex = 34;
             this.gbStatusStudenta.TabStop = false;
             this.gbStatusStudenta.Text = "Status studenta";
@@ -167,9 +182,10 @@
             // rbtnIzvanredni
             // 
             this.rbtnIzvanredni.AutoSize = true;
-            this.rbtnIzvanredni.Location = new System.Drawing.Point(6, 42);
+            this.rbtnIzvanredni.Location = new System.Drawing.Point(8, 52);
+            this.rbtnIzvanredni.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnIzvanredni.Name = "rbtnIzvanredni";
-            this.rbtnIzvanredni.Size = new System.Drawing.Size(112, 17);
+            this.rbtnIzvanredni.Size = new System.Drawing.Size(145, 21);
             this.rbtnIzvanredni.TabIndex = 1;
             this.rbtnIzvanredni.Text = "Izvanredni student";
             this.rbtnIzvanredni.UseVisualStyleBackColor = true;
@@ -178,9 +194,10 @@
             // 
             this.rbtnRedoviti.AutoSize = true;
             this.rbtnRedoviti.Checked = true;
-            this.rbtnRedoviti.Location = new System.Drawing.Point(6, 19);
+            this.rbtnRedoviti.Location = new System.Drawing.Point(8, 23);
+            this.rbtnRedoviti.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnRedoviti.Name = "rbtnRedoviti";
-            this.rbtnRedoviti.Size = new System.Drawing.Size(102, 17);
+            this.rbtnRedoviti.Size = new System.Drawing.Size(131, 21);
             this.rbtnRedoviti.TabIndex = 0;
             this.rbtnRedoviti.TabStop = true;
             this.rbtnRedoviti.Text = "Redoviti student";
@@ -188,59 +205,65 @@
             // 
             // txtPrezime
             // 
-            this.txtPrezime.Location = new System.Drawing.Point(115, 64);
+            this.txtPrezime.Location = new System.Drawing.Point(153, 79);
+            this.txtPrezime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPrezime.Name = "txtPrezime";
-            this.txtPrezime.Size = new System.Drawing.Size(242, 20);
+            this.txtPrezime.Size = new System.Drawing.Size(321, 22);
             this.txtPrezime.TabIndex = 33;
             // 
             // txtIme
             // 
-            this.txtIme.Location = new System.Drawing.Point(115, 38);
+            this.txtIme.Location = new System.Drawing.Point(153, 47);
+            this.txtIme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIme.Name = "txtIme";
-            this.txtIme.Size = new System.Drawing.Size(242, 20);
+            this.txtIme.Size = new System.Drawing.Size(321, 22);
             this.txtIme.TabIndex = 32;
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(115, 12);
+            this.txtId.Location = new System.Drawing.Point(153, 15);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(93, 20);
+            this.txtId.Size = new System.Drawing.Size(123, 22);
             this.txtId.TabIndex = 31;
             this.txtId.TabStop = false;
             // 
             // lblPrezime
             // 
             this.lblPrezime.AutoSize = true;
-            this.lblPrezime.Location = new System.Drawing.Point(19, 67);
+            this.lblPrezime.Location = new System.Drawing.Point(25, 82);
+            this.lblPrezime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrezime.Name = "lblPrezime";
-            this.lblPrezime.Size = new System.Drawing.Size(47, 13);
+            this.lblPrezime.Size = new System.Drawing.Size(63, 17);
             this.lblPrezime.TabIndex = 30;
             this.lblPrezime.Text = "Prezime:";
             // 
             // lblIme
             // 
             this.lblIme.AutoSize = true;
-            this.lblIme.Location = new System.Drawing.Point(19, 41);
+            this.lblIme.Location = new System.Drawing.Point(25, 50);
+            this.lblIme.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIme.Name = "lblIme";
-            this.lblIme.Size = new System.Drawing.Size(27, 13);
+            this.lblIme.Size = new System.Drawing.Size(34, 17);
             this.lblIme.TabIndex = 29;
             this.lblIme.Text = "Ime:";
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(19, 15);
+            this.lblId.Location = new System.Drawing.Point(25, 18);
+            this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(19, 13);
+            this.lblId.Size = new System.Drawing.Size(23, 17);
             this.lblId.TabIndex = 28;
             this.lblId.Text = "Id:";
             // 
             // NoviStudent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(390, 339);
+            this.ClientSize = new System.Drawing.Size(520, 417);
             this.Controls.Add(this.lblTim);
             this.Controls.Add(this.cmbTim);
             this.Controls.Add(this.btnSpremi);
@@ -257,6 +280,7 @@
             this.Controls.Add(this.lblPrezime);
             this.Controls.Add(this.lblIme);
             this.Controls.Add(this.lblId);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "NoviStudent";
             this.Text = "Unos podataka o novom ili postojećem studentu";
             this.gbOdabraniModel.ResumeLayout(false);

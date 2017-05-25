@@ -60,5 +60,56 @@ namespace Lab_2_4_EvidencijaStudenata
             }
             OsvjeziTimove();
         }
+
+        private void dgvTimovi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+
+
+        {/* MessageBox.Show("click na dgv");
+            if (dgvTimovi.SelectedRows.Count > 0)
+            {
+                Tim odabraniTim = dgvTimovi.SelectedRows[0].DataBoundItem as Tim;
+
+                List<Student> lista = Student.DohvatiStudenteTima(odabraniTim.Id);
+
+                dgvStudenti.DataSource = lista;
+
+                
+            }
+
+            */
+
+        }
+
+        private void btnDodajStudenta_Click(object sender, EventArgs e)
+        {
+            Tim odabraniTim = dgvTimovi.SelectedRows[0].DataBoundItem as Tim;
+            NoviStudent frmNoviTim = new NoviStudent(odabraniTim.Id);
+            frmNoviTim.ShowDialog();
+        }
+
+        private void btnObrisiStudenta_Click(object sender, EventArgs e)
+        {
+            if (dgvStudenti.SelectedRows.Count > 0)
+            {
+                Student s = dgvStudenti.SelectedRows[0].DataBoundItem as Student;
+                Student.Obrisi(s.Id);
+
+            }
+        }
+
+        private void dgvTimovi_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvTimovi.SelectedRows.Count > 0)
+            {
+                Tim odabraniTim = dgvTimovi.SelectedRows[0].DataBoundItem as Tim;
+
+                List<Student> lista = Student.DohvatiStudenteTima(odabraniTim.Id);
+
+                dgvStudenti.DataSource = lista;
+
+
+            }
+        }
     }
 }

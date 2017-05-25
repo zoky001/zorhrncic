@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EvidencijaStudenataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Aktivnost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="MaxBodovi" Type="float" Nullable="false" />
+          <Property Name="UvjetPotpis" Type="float" Nullable="false" />
+          <Property Name="UvjetOcjena" Type="float" Nullable="false" />
+          <Property Name="Pocetak" Type="datetime" />
+          <Property Name="Kraj" Type="datetime" />
+          <Property Name="Opis" Type="varchar" MaxLength="255" />
+          <Property Name="TipAktivnostiId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AktivnostStudenta">
+          <Key>
+            <PropertyRef Name="AktivnostId" />
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="AktivnostId" Type="int" Nullable="false" />
+          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="Bodovi" Type="float" Nullable="false" />
+          <Property Name="Datum" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ime" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Prezime" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="OdabraniModel" Type="char" MaxLength="1" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="Napomena" Type="varchar" MaxLength="255" />
+          <Property Name="TimId" Type="int" />
+        </EntityType>
+        <EntityType Name="Tim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OznakaTima" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="NazivProjekta" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="OpisProjekta" Type="varchar" MaxLength="255" />
+          <Property Name="Napomena" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="TipAktivnosti">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tip" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Aktivnost_TipAktivnosti">
+          <End Role="TipAktivnosti" Type="Self.TipAktivnosti" Multiplicity="1" />
+          <End Role="Aktivnost" Type="Self.Aktivnost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipAktivnosti">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Aktivnost">
+              <PropertyRef Name="TipAktivnostiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AktivnostStudenta_Aktivnost">
+          <End Role="Aktivnost" Type="Self.Aktivnost" Multiplicity="1" />
+          <End Role="AktivnostStudenta" Type="Self.AktivnostStudenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aktivnost">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AktivnostStudenta">
+              <PropertyRef Name="AktivnostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AktivnostStudenta_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="AktivnostStudenta" Type="Self.AktivnostStudenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AktivnostStudenta">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Tim">
+          <End Role="Tim" Type="Self.Tim" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tim">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="TimId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EvidencijaStudenataModelStoreContainer">
+          <EntitySet Name="Aktivnost" EntityType="Self.Aktivnost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AktivnostStudenta" EntityType="Self.AktivnostStudenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tim" EntityType="Self.Tim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipAktivnosti" EntityType="Self.TipAktivnosti" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Aktivnost_TipAktivnosti" Association="Self.FK_Aktivnost_TipAktivnosti">
+            <End Role="TipAktivnosti" EntitySet="TipAktivnosti" />
+            <End Role="Aktivnost" EntitySet="Aktivnost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AktivnostStudenta_Aktivnost" Association="Self.FK_AktivnostStudenta_Aktivnost">
+            <End Role="Aktivnost" EntitySet="Aktivnost" />
+            <End Role="AktivnostStudenta" EntitySet="AktivnostStudenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AktivnostStudenta_Student" Association="Self.FK_AktivnostStudenta_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="AktivnostStudenta" EntitySet="AktivnostStudenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Tim" Association="Self.FK_Student_Tim">
+            <End Role="Tim" EntitySet="Tim" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EvidencijaStudenataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Aktivnost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaxBodovi" Type="Double" Nullable="false" />
+          <Property Name="UvjetPotpis" Type="Double" Nullable="false" />
+          <Property Name="UvjetOcjena" Type="Double" Nullable="false" />
+          <Property Name="Pocetak" Type="DateTime" Precision="3" />
+          <Property Name="Kraj" Type="DateTime" Precision="3" />
+          <Property Name="Opis" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TipAktivnostiId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TipAktivnosti" Relationship="Self.FK_Aktivnost_TipAktivnosti" FromRole="Aktivnost" ToRole="TipAktivnosti" />
+          <NavigationProperty Name="AktivnostStudenta" Relationship="Self.FK_AktivnostStudenta_Aktivnost" FromRole="Aktivnost" ToRole="AktivnostStudenta" />
+        </EntityType>
+        <EntityType Name="AktivnostStudenta">
+          <Key>
+            <PropertyRef Name="AktivnostId" />
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="AktivnostId" Type="Int32" Nullable="false" />
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="Bodovi" Type="Double" Nullable="false" />
+          <Property Name="Datum" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Aktivnost" Relationship="Self.FK_AktivnostStudenta_Aktivnost" FromRole="AktivnostStudenta" ToRole="Aktivnost" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_AktivnostStudenta_Student" FromRole="AktivnostStudenta" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="OdabraniModel" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Napomena" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TimId" Type="Int32" />
+          <NavigationProperty Name="AktivnostStudenta" Relationship="Self.FK_AktivnostStudenta_Student" FromRole="Student" ToRole="AktivnostStudenta" />
+          <NavigationProperty Name="Tim" Relationship="Self.FK_Student_Tim" FromRole="Student" ToRole="Tim" />
+        </EntityType>
+        <EntityType Name="Tim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OznakaTima" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NazivProjekta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OpisProjekta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Napomena" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Tim" FromRole="Tim" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="TipAktivnosti">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tip" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Aktivnost" Relationship="Self.FK_Aktivnost_TipAktivnosti" FromRole="TipAktivnosti" ToRole="Aktivnost" />
+        </EntityType>
+        <Association Name="FK_Aktivnost_TipAktivnosti">
+          <End Role="TipAktivnosti" Type="Self.TipAktivnosti" Multiplicity="1" />
+          <End Role="Aktivnost" Type="Self.Aktivnost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipAktivnosti">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Aktivnost">
+              <PropertyRef Name="TipAktivnostiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AktivnostStudenta_Aktivnost">
+          <End Role="Aktivnost" Type="Self.Aktivnost" Multiplicity="1" />
+          <End Role="AktivnostStudenta" Type="Self.AktivnostStudenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aktivnost">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AktivnostStudenta">
+              <PropertyRef Name="AktivnostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AktivnostStudenta_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="AktivnostStudenta" Type="Self.AktivnostStudenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AktivnostStudenta">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Tim">
+          <End Role="Tim" Type="Self.Tim" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tim">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="TimId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EvidencijaStudenataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Aktivnost" EntityType="Self.Aktivnost" />
+          <EntitySet Name="AktivnostStudenta" EntityType="Self.AktivnostStudenta" />
+          <EntitySet Name="Student" EntityType="Self.Student" />
+          <EntitySet Name="Tim" EntityType="Self.Tim" />
+          <EntitySet Name="TipAktivnosti" EntityType="Self.TipAktivnosti" />
+          <AssociationSet Name="FK_Aktivnost_TipAktivnosti" Association="Self.FK_Aktivnost_TipAktivnosti">
+            <End Role="TipAktivnosti" EntitySet="TipAktivnosti" />
+            <End Role="Aktivnost" EntitySet="Aktivnost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AktivnostStudenta_Aktivnost" Association="Self.FK_AktivnostStudenta_Aktivnost">
+            <End Role="Aktivnost" EntitySet="Aktivnost" />
+            <End Role="AktivnostStudenta" EntitySet="AktivnostStudenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AktivnostStudenta_Student" Association="Self.FK_AktivnostStudenta_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="AktivnostStudenta" EntitySet="AktivnostStudenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Tim" Association="Self.FK_Student_Tim">
+            <End Role="Tim" EntitySet="Tim" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EvidencijaStudenataModelStoreContainer" CdmEntityContainer="EvidencijaStudenataEntities">
+          <EntitySetMapping Name="Aktivnost">
+            <EntityTypeMapping TypeName="EvidencijaStudenataModel.Aktivnost">
+              <MappingFragment StoreEntitySet="Aktivnost">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="MaxBodovi" ColumnName="MaxBodovi" />
+                <ScalarProperty Name="UvjetPotpis" ColumnName="UvjetPotpis" />
+                <ScalarProperty Name="UvjetOcjena" ColumnName="UvjetOcjena" />
+                <ScalarProperty Name="Pocetak" ColumnName="Pocetak" />
+                <ScalarProperty Name="Kraj" ColumnName="Kraj" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="TipAktivnostiId" ColumnName="TipAktivnostiId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AktivnostStudenta">
+            <EntityTypeMapping TypeName="EvidencijaStudenataModel.AktivnostStudenta">
+              <MappingFragment StoreEntitySet="AktivnostStudenta">
+                <ScalarProperty Name="AktivnostId" ColumnName="AktivnostId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="Bodovi" ColumnName="Bodovi" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student">
+            <EntityTypeMapping TypeName="EvidencijaStudenataModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="OdabraniModel" ColumnName="OdabraniModel" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Napomena" ColumnName="Napomena" />
+                <ScalarProperty Name="TimId" ColumnName="TimId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tim">
+            <EntityTypeMapping TypeName="EvidencijaStudenataModel.Tim">
+              <MappingFragment StoreEntitySet="Tim">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OznakaTima" ColumnName="OznakaTima" />
+                <ScalarProperty Name="NazivProjekta" ColumnName="NazivProjekta" />
+                <ScalarProperty Name="OpisProjekta" ColumnName="OpisProjekta" />
+                <ScalarProperty Name="Napomena" ColumnName="Napomena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipAktivnosti">
+            <EntityTypeMapping TypeName="EvidencijaStudenataModel.TipAktivnosti">
+              <MappingFragment StoreEntitySet="TipAktivnosti">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tip" ColumnName="Tip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

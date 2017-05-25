@@ -34,12 +34,12 @@
             this.btnDodajTim = new System.Windows.Forms.Button();
             this.btnObrisiTim = new System.Windows.Forms.Button();
             this.btnIzmijeniTim = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvStudenti = new System.Windows.Forms.DataGridView();
             this.btnIzmijeniStudenta = new System.Windows.Forms.Button();
             this.btnObrisiStudenta = new System.Windows.Forms.Button();
             this.btnDodajStudenta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimovi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudenti)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTimovi
@@ -68,16 +68,18 @@
             // 
             this.dgvTimovi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTimovi.Location = new System.Drawing.Point(20, 31);
-            this.dgvTimovi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvTimovi.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTimovi.Name = "dgvTimovi";
             this.dgvTimovi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTimovi.Size = new System.Drawing.Size(836, 172);
             this.dgvTimovi.TabIndex = 2;
+            this.dgvTimovi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTimovi_CellContentClick);
+            this.dgvTimovi.SelectionChanged += new System.EventHandler(this.dgvTimovi_SelectionChanged);
             // 
             // btnDodajTim
             // 
             this.btnDodajTim.Location = new System.Drawing.Point(748, 210);
-            this.btnDodajTim.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDodajTim.Margin = new System.Windows.Forms.Padding(4);
             this.btnDodajTim.Name = "btnDodajTim";
             this.btnDodajTim.Size = new System.Drawing.Size(108, 42);
             this.btnDodajTim.TabIndex = 3;
@@ -88,7 +90,7 @@
             // btnObrisiTim
             // 
             this.btnObrisiTim.Location = new System.Drawing.Point(516, 210);
-            this.btnObrisiTim.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnObrisiTim.Margin = new System.Windows.Forms.Padding(4);
             this.btnObrisiTim.Name = "btnObrisiTim";
             this.btnObrisiTim.Size = new System.Drawing.Size(108, 42);
             this.btnObrisiTim.TabIndex = 4;
@@ -99,7 +101,7 @@
             // btnIzmijeniTim
             // 
             this.btnIzmijeniTim.Location = new System.Drawing.Point(632, 210);
-            this.btnIzmijeniTim.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnIzmijeniTim.Margin = new System.Windows.Forms.Padding(4);
             this.btnIzmijeniTim.Name = "btnIzmijeniTim";
             this.btnIzmijeniTim.Size = new System.Drawing.Size(108, 42);
             this.btnIzmijeniTim.TabIndex = 5;
@@ -107,20 +109,20 @@
             this.btnIzmijeniTim.UseVisualStyleBackColor = true;
             this.btnIzmijeniTim.Click += new System.EventHandler(this.btnIzmijeniTim_Click);
             // 
-            // dataGridView1
+            // dgvStudenti
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 274);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(836, 172);
-            this.dataGridView1.TabIndex = 6;
+            this.dgvStudenti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudenti.Location = new System.Drawing.Point(20, 274);
+            this.dgvStudenti.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvStudenti.Name = "dgvStudenti";
+            this.dgvStudenti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvStudenti.Size = new System.Drawing.Size(836, 172);
+            this.dgvStudenti.TabIndex = 6;
             // 
             // btnIzmijeniStudenta
             // 
             this.btnIzmijeniStudenta.Location = new System.Drawing.Point(632, 454);
-            this.btnIzmijeniStudenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnIzmijeniStudenta.Margin = new System.Windows.Forms.Padding(4);
             this.btnIzmijeniStudenta.Name = "btnIzmijeniStudenta";
             this.btnIzmijeniStudenta.Size = new System.Drawing.Size(108, 42);
             this.btnIzmijeniStudenta.TabIndex = 9;
@@ -130,22 +132,24 @@
             // btnObrisiStudenta
             // 
             this.btnObrisiStudenta.Location = new System.Drawing.Point(516, 454);
-            this.btnObrisiStudenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnObrisiStudenta.Margin = new System.Windows.Forms.Padding(4);
             this.btnObrisiStudenta.Name = "btnObrisiStudenta";
             this.btnObrisiStudenta.Size = new System.Drawing.Size(108, 42);
             this.btnObrisiStudenta.TabIndex = 8;
             this.btnObrisiStudenta.Text = "Obriši studenta";
             this.btnObrisiStudenta.UseVisualStyleBackColor = true;
+            this.btnObrisiStudenta.Click += new System.EventHandler(this.btnObrisiStudenta_Click);
             // 
             // btnDodajStudenta
             // 
             this.btnDodajStudenta.Location = new System.Drawing.Point(748, 454);
-            this.btnDodajStudenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDodajStudenta.Margin = new System.Windows.Forms.Padding(4);
             this.btnDodajStudenta.Name = "btnDodajStudenta";
             this.btnDodajStudenta.Size = new System.Drawing.Size(108, 42);
             this.btnDodajStudenta.TabIndex = 7;
             this.btnDodajStudenta.Text = "Dodaj studenta";
             this.btnDodajStudenta.UseVisualStyleBackColor = true;
+            this.btnDodajStudenta.Click += new System.EventHandler(this.btnDodajStudenta_Click);
             // 
             // GlavnaForma
             // 
@@ -155,19 +159,19 @@
             this.Controls.Add(this.btnIzmijeniStudenta);
             this.Controls.Add(this.btnObrisiStudenta);
             this.Controls.Add(this.btnDodajStudenta);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvStudenti);
             this.Controls.Add(this.btnIzmijeniTim);
             this.Controls.Add(this.btnObrisiTim);
             this.Controls.Add(this.btnDodajTim);
             this.Controls.Add(this.dgvTimovi);
             this.Controls.Add(this.lblStudenti);
             this.Controls.Add(this.lblTimovi);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GlavnaForma";
             this.Text = "Glavna forma aplikacije";
             this.Load += new System.EventHandler(this.GlavnaForma_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimovi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudenti)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,7 +185,7 @@
         private System.Windows.Forms.Button btnDodajTim;
         private System.Windows.Forms.Button btnObrisiTim;
         private System.Windows.Forms.Button btnIzmijeniTim;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvStudenti;
         private System.Windows.Forms.Button btnIzmijeniStudenta;
         private System.Windows.Forms.Button btnObrisiStudenta;
         private System.Windows.Forms.Button btnDodajStudenta;

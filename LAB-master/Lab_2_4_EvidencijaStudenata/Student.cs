@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Text;
 
 namespace Lab_2_4_EvidencijaStudenata
@@ -10,6 +11,33 @@ namespace Lab_2_4_EvidencijaStudenata
     public class Student
     {
         #region Constructors
+
+        public Student() { }
+        public Student(DbDataReader dr) {
+            if (dr != null)
+            {
+                Id = int.Parse(dr["Id"].ToString());
+                Ime = dr["Ime"].ToString();
+                Prezime = dr["Prezime"].ToString();
+                Status = char.Parse(dr["Status"].ToString());
+                Email = dr["Email"].ToString();
+                Napomena = dr["Napomena"].ToString();
+
+
+                List<Tim> nova = Tim.DohvatiTimove();
+                foreach (var item in nova)
+                {
+                    if (item.Id == int.Parse(dr["TimId"].ToString()))
+                    {
+                        Tim = item;
+                    }
+                }
+
+                OdabraniModel = char.Parse(dr["OdabraniModel"].ToString());
+
+            }
+
+        }
 
         #endregion
 
@@ -175,6 +203,58 @@ namespace Lab_2_4_EvidencijaStudenata
         #endregion
 
         #region Methods
+
+
+        public static List<Student> DohvatiStudenteTima( int idTima) {
+
+            List<Student> VRATI = new List<Student>();
+            string upit = "SELECT * FROM Student WHERE TimId = '" + idTima.ToString()+"'";
+            DbDataReader dr = DB1.Instance.PreuzmiDataReader(upit);
+
+            while (dr.Read())
+            {
+                Student s = new Student(dr);
+                VRATI.Add(s);
+
+            }
+            dr.Close();
+            return VRATI;
+
+
+        }
+
+
+        public static  int Obrisi( int id)
+        {
+            string sqlDelete = "DELETE FROM Student WHERE Id =" + id;
+            return DB.Instance.IzvrsiUpit(sqlDelete);
+
+        }
+
+
+        public int Spremi() {
+
+            int TimId = tim.Id;
+
+            string upit = "";
+
+
+            if (id == 0)
+            {
+                upit = "INSERT INTO Student (Id, Ime, Prezime, Status, Email, Napomena, TimId, OdabraniModel) VALUES ( null, '" + ime + "','" + Prezime + "','" + status + "','" + Email + "','" + Napomena + "','" + TimId+"','"+odabraniModel+"')";
+            }
+            else
+            {
+
+
+
+
+            }
+
+            return DB1.Instance.IzvrsiUpis(upit);
+
+
+        }
 
         #endregion
     }
