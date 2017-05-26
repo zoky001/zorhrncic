@@ -29,17 +29,31 @@ namespace Lab_3_1_EvidencijaStudenata
             using (var db = new EvidencijaStudenataEntities()) {
 
                 listaTimova = new BindingList<Tim>(db.Tim.ToList());
+
+
+
             }
             timBindingSource.DataSource = listaTimova;
         }
 
         private void PrikaziStudente(Tim tim) {
-            BindingList<Student> listaStudenata = null;
+            List<Student> listaStudenata = null;
             using(var db = new EvidencijaStudenataEntities())
             {
                 db.Tim.Attach(tim);
                 listaStudenata = new
-                BindingList<Student>(tim.Student.ToList<Student>());
+                List<Student>(tim.Student.ToList<Student>());
+                listaStudenata = (from t in listaStudenata
+                                  where t.Status == "R".ToString()
+                                  &&
+                                  t.Ime.Contains("Igor")
+
+                                  select t).ToList<Student>();
+
+                List<int> total = (from t in listaStudenata
+                                          select t.Id).ToList<int>();
+                // double a = total.Average();
+                textBox1.Text = total.Count().ToString();
 
             }
             studentBindingSource.DataSource = listaStudenata;
@@ -51,6 +65,31 @@ namespace Lab_3_1_EvidencijaStudenata
             if (selektrianiTim != null)
             {
                 PrikaziStudente(selektrianiTim);
+                int sum = 0;
+                for (int i = 0; i < dgvStudenti.Rows.Count; ++i)
+                {
+                    sum += Convert.ToInt32(dgvStudenti.Rows[i].Cells[0].Value);
+                }
+
+                /*int total = dgvStudenti.Rows.Cast<DataGridViewRow>()
+                .Min(t => Convert.ToInt32(t.Cells[0].Value));
+
+                textBox1.Text = total.ToString();*/
+                using (var db = new EvidencijaStudenataEntities())
+                {
+                    List<Student> prviTim = (from t in db.Student
+                                       where t.Status == "R".ToString()
+                 select t).ToList<Student>();
+
+                    /*   BindingList<Student> lista = 
+                           new BindingList<Student>(prviTim.Student.ToList<Student>());
+       */
+                   // dgvStudenti.DataSource = prviTim;
+                }
+              
+
+
+
             }
 
         }
